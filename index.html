@@ -1,0 +1,119 @@
+!<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Main Stats Feed</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+<script>
+$(document).ready(function () {
+        $.getJSON("https://globalsupport.qmatic.com:444/dashboard/get.php?username=dashboardUS&password=ulan&categoryId=3",function (json) {
+               ko.applyBindings({
+                  teams: json
+               });
+          }
+        });
+
+    }); 
+</script>   
+
+</head>
+
+
+<meta http-equiv="refresh" content="300"
+<body>
+<!--Table to store XML data -->
+<div class="container">
+  <h2>Technician Status</h2>
+  <p>Current Status of techs</p>
+    <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thread>
+        <tr>
+          <th>Technician</th>
+          <th>Site ID</th>
+          <th>Site Name</th>
+          <th>Summary of Task</th>
+        </tr>
+      </thread>
+      <tbody>
+        <tr>
+          <td>Bob Johnson</td>
+          <td>US100010</td>
+          <td>San Diego HHSA</td>
+          <td>Install New Kiosk</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="container">
+<h2>Support Status</h2>
+<p>Current Status of Tickets</p>
+  <div class="table-responsive">
+  <table class="table table-striped table-bordered">
+    <thread>
+      <tr>
+        <th>Total Open</th>
+        <th>Daily Total</th>
+        <th>Weekly Total</th>
+        <th>Monthly Total</th>
+        <th>Overdue</th>
+      </tr>
+    </thread>
+    <tbody>
+      <tr>
+        <td>85</td>
+        <td>7</td>
+        <td>15</td>
+        <td>3</td>
+        <td>0</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+    </div>
+
+<div class="container">
+<h2>Support Lab Status</h2>
+<p>Current Testing In Progress</p>
+  <div class="table-responsive">
+  <table class="table table-striped table-bordered">
+    <thread>
+      <tr>
+        <th>VM Number</th>
+        <th>Client Site Loaded</th>
+        <th>Software Version</th>
+        <th>Progresss Level</th>
+        <th>Support Tech Using It</th>
+      </tr>
+    </thread>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>San Diego HHSA</td>
+        <td>5.4</td>
+        <td>15%</td>
+        <td>Russell</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+
+</html>
