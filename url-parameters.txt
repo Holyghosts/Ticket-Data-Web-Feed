@@ -1,0 +1,173 @@
+
+url:
+https://globalsupport.qmatic.com:444/dashboard/index.php
+
+required parameters:
+categoryId=[category id]
+username=[username]
+password=[password]
+
+
+optional parameters:
+
+dateFormat=mm/dd/yy (default yyyy-mm-dd if not specified, see below for characters supported)
+timeFormat=hh:MM_tt (default HH:MM if not specified, see below for characters supported)
+
+categoryId=16 (default 22 (distr. support) if not specified) “16” is first line AU
+dlLimit1=60 (default 60 minutes if not specified) time when line is yellow
+dlLimit2=30 (default 30 minutes if not specified) time when line is orange
+
+Color url parameters, and their default values:
+cL1=FFCC66          (color when level 1 is reached)
+cL2=FF6600          (color when level 2 is reached)
+
+cL3a=FF3333        (color A when deadline reached)
+cL3b=FF3333        (color B when deadline reached, flash between A and B if these are different)
+
+cT0=EEEEEE        (toggle color 0)
+cT1=ABFDAB        (toggle color 1)
+
+sepCat=26         This category id is shown with other "toggle color" (cT20 & cT21)
+cT20=CCFFFF        (toggle color 0 for sepCat)
+cT21=99CCFF        (toggle color 1 for sepCat)
+
+hideCat=26        Hide a specific category (nothing from this cat will show on dashboard, mostly used for the DI dashboard)
+
+rows=0            how many rows/cases to show on each page
+refresh=30     how often page should refresh / switch page
+cS0=EEEEEE        horisontal "scroll bar" background color
+cS1=006600        horisontal "scroll bar" foreground color
+
+refresh=30        How often (seconds) to refresh the information (default 30s)
+reload=12         How often (hours) to reload the page (really reload aka "F5") (default every 12 hours)
+
+bars=1						Use bars (1) or not (0) (default 0)
+map=1							Use map (1) or not (0) (default 0)
+
+categories=se,us	Categories to show in bars and on map (example: se, us, au, dk etc...)
+
+As default the following columns are shown:
+- id
+- created
+- lastChanged
+- deadlineNext
+- deadlineType
+- title
+- status
+- owner
+- sla
+- client
+
+Possible to hide some, or add a few more with colHide and colShow
+
+Example to hide status and owner:
+colHide=status,owner
+
+Example to show also severity:
+colShow=severity (at the moment this is the only column possible to add to the default ones)
+
+showPresale=1			Possible to hide severity "Presale" by setting this to 0 (default 1)
+
+
+showStatus=1,6,7,11,12,13		Possible to filter "status" (default 1,6,7,11,12,13,101,102,103,111,112)
+
+1:			Waiting in first line
+(2:			Closed)
+(3:			Postponed)
+(4:			Deleted)
+(5:			Linked)
+6:			Waiting for customer
+7:			Workaround
+11:			Waiting in second line
+12:			New in second line
+13:			New in first line
+
+101:		Waiting for technician
+102:		Technician on site
+103:		Technician done
+111:		Waiting for equipment
+112:		Equipment received
+
+Note:
+The statuses within parantheses are ignored and cannot be used
+
+fontSize=16				Change the overall font size (default 16)
+
+statusColor=13,ff0000				Define a background color depending on status
+														Comma separated list with pairs statusId,color0:color1:color2:color3,statusId,color1:color2:color3, etc...
+														color0: color to use for no alert level
+														color1: color to use for alert level 1 (leave empty to use default)
+														color2: color to use for alert level 2 (leave empty to use default)
+														color3: color to use for alert level 3 (leave empty to use default)
+														
+hideStatusUntilLimit=0,6		Hide these statuses until any of the deadline limits has been reached (default 0,6)
+														Note that this one will hide the status even if "showStatus" shows the status
+														But it will also have no effect if status is not included in "showStatus"
+
+
+showRequests=1							Show the main request list or not, set to 0 to hide (default 1)
+
+stat=1											Show some statistics (default 0)
+
+daysAvgCreated=30						Within how many days back must request be created to include in average time-to-close
+daysAvgClosed=30			  		Within how many days back must request be closed to include in average time-to-close
+
+toplist=1                   Show a list of all clients and number of created requests (default 0)
+toplistDays=90              Number of days to calculate the toplist (default 90 days)
+
+- - - - -
+
+Date/time format:
+Following are the special characters supported.
+Mask                  Description
+
+d                          Day of the month as digits; no leading zero for single-digit days.
+dd                        Day of the month as digits; leading zero for single-digit days.
+ddd                     Day of the week as a three-letter abbreviation.
+dddd                  Day of the week as its full name.
+
+m                         Month as digits; no leading zero for single-digit months.
+mm                     Month as digits; leading zero for single-digit months.
+mmm                 Month as a three-letter abbreviation.
+mmmm             Month as its full name.
+
+yy                        Year as last two digits; leading zero for years less than 10.
+yyyy                    Year represented by four digits.
+
+h                          Hours; no leading zero for single-digit hours (12-hour clock).
+hh                        Hours; leading zero for single-digit hours (12-hour clock).
+H                          Hours; no leading zero for single-digit hours (24-hour clock).
+HH                       Hours; leading zero for single-digit hours (24-hour clock).
+
+M                         Minutes; no leading zero for single-digit minutes.
+MM                    Minutes; leading zero for single-digit minutes.
+
+s                           Seconds; no leading zero for single-digit seconds.
+ss                         Seconds; leading zero for single-digit seconds.
+
+l or L                    Milliseconds. l gives 3 digits. L gives 2 digits.
+
+t                           Lowercase, single-character time marker string: a or p.
+tt                          Lowercase, two-character time marker string: am or pm.
+T                           Uppercase, single-character time marker string: A or P.
+TT                        Uppercase, two-character time marker string: AM or PM.
+
+_                          underscore is replaced by a space if used in the url
+
+
+
+OBSOLETE/UNSUPPORTED parameters
+===============================
+
+showTech=0,1,2,3			Possible to filter "technician status" (default 0,1,2,3)
+Note:
+The parameter "showTech" may be obsolete now when it is possible to filter also tech status from "showStatus"
+
+0, 1, 2, 3 represents different technician status:
+0:	normal, undefined or N/A
+1: 	Waiting for technician
+2:	Technician on site
+3:	Technician done
+
+Example to show only "normal" and "Technician done"
+showTech=0,3
