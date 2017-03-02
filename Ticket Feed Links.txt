@@ -1,0 +1,15 @@
+All tickets screen:
+https://globalsupport.qmatic.com:444/dashboard/index.php?username=dashboardUS&password=ulan&categoryId=3
+
+
+All tickets waiting in “our” side:
+https://globalsupport.qmatic.com:444/dashboard/index.php?username=dashboardUS&password=ulan&categoryId=3&showStatus=1,11,12,13&dlLimit1=480&dlLimit2=240&refresh=60&reload=1&stat=0&statusColor=11,99ccff:::4684FF,12,99ccff:::4684FF
+
+Summary screen:
+https://globalsupport.qmatic.com:444/dashboard/index.php?showRequests=0&username=dashboardUS&password=ulan&categoryId=3&daysAvgCreated=30&daysAvgClosed=30&stat=1
+
+RAW JSON data:
+http://globalsupport.qmatic.com:81/dashboard/get.php?username=dashboardUS&password=ulan&categoryId=3
+
+
+https://globalsupport.qmatic.com:444/dashboard/get.php?username=dashboardUS&password=ulan&categoryId=3
